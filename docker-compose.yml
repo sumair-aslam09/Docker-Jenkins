@@ -1,20 +1,20 @@
 version: '3'
 services:
-  nginx:
+  web:
     build:
       context: .
       dockerfile: Dockerfile
     depends_on:
-      - mysql
+      - db
     ports:
-      - 80:80
+      - 82:80
     networks:
       - mynetwork
     volumes:
-      - static:/usr/share/nginx/html
+      - webdata:/usr/share/nginx/html
     links:
-      - mysql
-  mysql:
+      - db
+  db:
     image: mysql:latest
     restart: always
     environment:
@@ -22,6 +22,8 @@ services:
       MYSQL_DATABASE: mydb
       MYSQL_USER: sumair
       MYSQL_PASSWORD: password
+    ports:
+      - 3306:3306
     networks:
       - mynetwork
     volumes:
@@ -31,5 +33,5 @@ networks:
   mynetwork:
     driver: bridge
 volumes:
-  static:
+  webdata:
   mysql-data:
