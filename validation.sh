@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to your docker-compose.yml file
-COMPOSE_FILE="/home/sumohammad/sumair/docker-compose.yml"
+COMPOSE_FILE="/jenkins_home/workspace/Sumair-Assessment-3/sumair/docker-compose.yml"
 
 #Specify network name
 NETWORK=sumair_mynetwork
