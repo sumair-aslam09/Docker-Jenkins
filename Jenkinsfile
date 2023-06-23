@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     stages {
         stage('Workspace clean'){
             steps {
@@ -12,31 +12,20 @@ pipeline {
                 sh 'git clone https://github.com/sumair-aslam09/sumair.git'
             }
         }
-        
         stage('Start Docker Compose') {
             steps {
-                dir('nginx-compose'){
+                dir('sumair'){
                 sh 'docker-compose up -d'
                 }
             }
         }
-        
-        stage('Check Status') {
+        stage('Validation') {
             steps {
-                dir('nginx-compose'){
-                sh 'chmod +x check-status.sh'  // Give executable permissions
-                sh './check-status.sh'
-                }
-            }
-        }
-        
-        stage('Check Connection') {
-            steps {
-                dir('nginx-compose'){
-                sh 'chmod +x check-connection.sh'  // Give executable permissions
-                sh './check-connection.sh'
+                dir('sumair'){
+                sh 'chmod +x validation.sh'  
+                sh './validation.sh'
                 }
             }
         }
     }
-}
+}    
