@@ -5,10 +5,10 @@ FROM nginx
 RUN rm /etc/nginx/conf.d/default.conf
 
 # Copy your custom Nginx configuration file
-COPY nginx.conf /etc/nginx/conf.d/
+COPY /jenkins_home/workspace/Sumair-Assessment-3/sumair/nginx.conf /etc/nginx/conf.d/
 
 # Copy your static files to the appropriate directory
-COPY index.html /usr/share/nginx/html/
+COPY /jenkins_home/workspace/Sumair-Assessment-3/sumair/index.html /usr/share/nginx/html/
 
 # Expose port 80
 EXPOSE 80
