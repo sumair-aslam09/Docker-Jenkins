@@ -2,7 +2,7 @@ version: '3'
 services:
   web:
     build:
-      context: .
+      context: /jenkins_home/workspace/Sumair-Assessment-3/sumair
       dockerfile: Dockerfile
     depends_on:
       - db
