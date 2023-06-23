@@ -12,6 +12,8 @@ services:
       - mynetwork
     volumes:
       - static:/usr/share/nginx/html
+    links:
+      - mysql
   mysql:
     image: mysql:latest
     restart: always
