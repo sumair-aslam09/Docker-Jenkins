@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Clone Repository') {
             steps {
-                sh 'git clone https://github.com/sumair-aslam09/nginx-compose.git'
+                sh 'git clone https://github.com/sumair-aslam09/sumair.git'
             }
         }
         
